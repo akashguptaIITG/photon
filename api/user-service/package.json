@@ -1,0 +1,18 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "Microservice for user management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "akash gupta",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.4",
+    "sqlite3": "^4.1.1"
+  }
+}
