@@ -4,22 +4,41 @@ services:
   user-service:
     build: ./user-service
     image: akashgupta01/photon-user-service:latest
-
+    container_name: akashgupta01_photon-user-service
     ports:
       - "7001:7001"
 
   product-service:
     build: ./product-service
     image: akashgupta01/photon-product-service:latest
+    container_name: akashgupta01_photon-product-service
+
     ports:
       - "7002:7002"
+
   order-service:
     build: ./order-service
     image: akashgupta01/photon-order-service:latest
+    container_name: akashgupta01_photon-order-service
     ports:
       - "7003:7003"
+
   cart-service:
     build: ./cart-service
     image: akashgupta01/photon-cart-service:latest
+    container_name: akashgupta01_photon-cart-service
     ports:
       - "7004:7004"
+
+  api-gateway:
+    image: nginx:latest
+    container_name: akashgupta01_photon-api-gateway
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api-gateway/gateway.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - user-service
+      - product-service
+      - order-service
+      - cart-service
