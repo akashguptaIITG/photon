@@ -1,4 +1,4 @@
-const { User } = require("../models/index");
+const { Users } = require("../models/index");
 const { Op } = require("sequelize");
 const bcrypt = require("bcrypt");
 async function getUserById(userId) {
@@ -21,10 +21,10 @@ async function createUser(user) {
 
     let passwordHash = await bcrypt.hash(password, 10);
 
-    let userRes = await User.create({
-      Username: username,
-      PasswordHash: passwordHash,
-      Role: role
+    let userRes = await Users.create({
+      username,
+      passwordHash,
+      role
     });
     console.log("createUser: completed", userRes);
     return userRes;
@@ -38,10 +38,10 @@ async function getUserByUsername(username) {
   try {
     console.log("getUserByUsername: started", username);
     let userRes = null;
-    userRes = await User.findOne({
-      attributes: ["Id", "Username", "PasswordHash", "Role"],
+    userRes = await Users.findOne({
+      attributes: ["id", "username", "passwordHash", "role"],
       where: {
-        Username: {
+        username: {
           [Op.eq]: username
         }
       }
@@ -53,6 +53,9 @@ async function getUserByUsername(username) {
     throw err;
   }
 }
+async function authenticateUser(token) {}
+async function singinUser(username, password) {}
+
 module.exports = {
   getUserById,
   createUser,

@@ -5,7 +5,7 @@ router.post("/register", async (req, res) => {
   try {
     let { username = null, password = null, role = null } = req.body;
     let userRes = await userController.createUser({ username, password, role });
-    delete userRes.PasswordHash;
+    delete userRes.passwordHash;
     res.json(userRes);
   } catch (err) {
     console.log("route:api/user/register: failed", err);
@@ -19,6 +19,13 @@ router.get("/:userId", async (req, res) => {
     console.log("route:api/user/:userId: failed", err);
     res.sendStatus(500);
   }
+});
+router.get("/authenticate", async (req, res) => {
+
+});
+
+router.post("/signin", async (req, res) => {
+  
 });
 
 module.exports = router;

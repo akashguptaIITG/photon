@@ -1,23 +1,23 @@
 const { DataTypes } = require("sequelize");
 const { db } = require("../setup/db");
-const User = db.define(
-  "User",
+const Users = db.define(
+  "Users",
   {
-    Id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    Username: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    PasswordHash: {
+    passwordHash: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Role: {
+    role: {
       type: DataTypes.ENUM,
       values: ["customer", "delivery", "admin"],
       allowNull: false,
@@ -31,4 +31,4 @@ const User = db.define(
     freezeTableName: true
   }
 );
-module.exports = { User };
+module.exports = { Users };
