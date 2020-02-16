@@ -17,6 +17,6 @@ require("./routes/route")(app);
 db.sync({ force: false }).then(() => {
   console.log("db synced succesfully");
 });
-app.listen(7004, () => {
-  console.log("server is running on port", 7004);
+app.listen(7003, () => {
+  console.log("server is running on port", 7003);
 });
