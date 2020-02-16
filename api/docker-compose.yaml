@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  user-service:
+    build: ./user-service
+    image: akashgupta01/photon-user-service:latest
+
+    ports:
+      - "7001:7001"
+
+  product-service:
+    build: ./product-service
+    image: akashgupta01/photon-product-service:latest
+    ports:
+      - "7002:7002"
+  order-service:
+    build: ./order-service
+    image: akashgupta01/photon-order-service:latest
+    ports:
+      - "7003:7003"
+  cart-service:
+    build: ./cart-service
+    image: akashgupta01/photon-cart-service:latest
+    ports:
+      - "7004:7004"
