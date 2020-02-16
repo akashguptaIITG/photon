@@ -20,12 +20,8 @@ router.get("/:userId", async (req, res) => {
     res.sendStatus(500);
   }
 });
-router.get("/authenticate", async (req, res) => {
+router.get("/authenticate", async (req, res) => {});
 
-});
-
-router.post("/signin", async (req, res) => {
-  
-});
+router.post("/signin", async (req, res) => {});
 
 module.exports = router;

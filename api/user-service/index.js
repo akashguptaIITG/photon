@@ -14,7 +14,7 @@ require("./models/index");
 require("./routes/route")(app);
 
 // syncing db
-db.sync({ force: true }).then(() => {
+db.sync({ force: false }).then(() => {
   console.log("db synced succesfully");
 });
 app.listen(7001, () => {

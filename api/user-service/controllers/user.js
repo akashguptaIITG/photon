@@ -27,7 +27,7 @@ async function createUser(user) {
       role
     });
     console.log("createUser: completed", userRes);
-    return userRes;
+    return userRes.toJSON();
   } catch (err) {
     console.log("createUser: error", err);
     throw err;
@@ -47,7 +47,7 @@ async function getUserByUsername(username) {
       }
     });
     console.log("getUserByUsername: completed", user);
-    return userRes;
+    return userRes.toJSON();
   } catch (err) {
     console.log("getUserByUsername: failed", username, err);
     throw err;
