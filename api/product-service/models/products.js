@@ -21,7 +21,7 @@ const Products = db.define(
       type: DataTypes.ENUM,
       values: ["available", "na"],
       allowNull: false,
-      defaultValue: "availabSle",
+      defaultValue: "available",
       validate: {
         isIn: [["available", "na"]]
       }
