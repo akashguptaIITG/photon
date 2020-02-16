@@ -14,11 +14,29 @@ const Orders = db.define(
     },
     status: {
       type: DataTypes.ENUM,
-      values: ["placed", "pending", "shipped", "delivered", "cancelled"],
+      values: [
+        "pending",
+        "approved",
+        "placed",
+        "shipped",
+        "delivered",
+        "undelivered",
+        "cancelled"
+      ],
       allowNull: false,
-      defaultValue: "placed",
+      defaultValue: "pending",
       validate: {
-        isIn: [["placed", "pending", "shipped", "delivered", "cancelled"]]
+        isIn: [
+          [
+            "pending",
+            "placed",
+            "approved",
+            "shipped",
+            "delivered",
+            "undelivered",
+            "cancelled"
+          ]
+        ]
       }
     }
   },

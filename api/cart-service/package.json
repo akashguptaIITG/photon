@@ -1,0 +1,19 @@
+{
+  "name": "cart-service",
+  "version": "1.0.0",
+  "description": "A microservice for cart management",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.4",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "akash gupta",
+  "license": "ISC"
+}
