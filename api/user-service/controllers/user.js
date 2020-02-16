@@ -1,12 +1,14 @@
 const { Users } = require("../models/index");
 const { Op } = require("sequelize");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 async function getUserById(userId) {
   try {
     console.log("getUserById: started", userId);
-    let userRes = await User.findByPk(userId);
-    console.log("getUserById: completed", userRes);
-    return userRes;
+    let userRes = await Users.findByPk(userId);
+    let result = userRes ? userRes.toJSON() : {};
+    delete result.passwordHash;
+    console.log("getUserById: completed", result);
+    return result;
   } catch (err) {
     console.log("getUserById: error", userId, err);
     throw err;

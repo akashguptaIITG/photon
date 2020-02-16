@@ -14,7 +14,8 @@ router.post("/register", async (req, res) => {
 });
 router.get("/:userId", async (req, res) => {
   try {
-    await userController.getUserById(req.params.userId);
+    let result = await userController.getUserById(req.params.userId);
+    res.json(result);
   } catch (err) {
     console.log("route:api/user/:userId: failed", err);
     res.sendStatus(500);
